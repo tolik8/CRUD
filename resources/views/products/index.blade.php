@@ -2,6 +2,11 @@
 
 @section('title', 'Products')
 
+@section('css')
+@parent
+    <link rel="stylesheet" href="/css/products.css">
+@endsection
+
 @section('content')
 
 <a href="{{ route('home') }}">Home page</a>
@@ -26,8 +31,7 @@
             <td>
                 <form method="POST" action="/products/{{ $product->id }}">
                     @method('delete') @csrf {{ $product->id }}
-                    <i class="far fa-minus-square text-danger"></i>
-{{--                    <button type="submit"><i class="far fa-minus-square text-danger"></i></button>--}}
+                    <button type="submit" class="icon-delete"><i class="far fa-minus-square text-danger"></i></button>
                 </form>
             </td>
             <td>{{ $product->code }}</td>

@@ -12,7 +12,7 @@
 |
 */
 
-Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
+Route::get('/{locale}', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 Route::get('/products', ['uses' => 'ProductController@index', 'as' => 'products.index']);
 Route::get('/products/create', ['uses' => 'ProductController@create', 'as' => 'products.create']);

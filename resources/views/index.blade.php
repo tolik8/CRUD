@@ -6,6 +6,6 @@
 
 <h3>Laravel CRUD</h3>
 
-<a href="{{ route('products.index') }}">Products</a>
+<a href="{{ route('products.index') }}">@lang('home.products')</a>
 
 @endsection

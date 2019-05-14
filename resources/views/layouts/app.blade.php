@@ -11,6 +11,7 @@
 <body>
 
 <div class="container">
+@include('layouts.lang')
 @yield('content')
 </div>
 

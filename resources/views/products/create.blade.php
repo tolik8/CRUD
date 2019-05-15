@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('products.template')
 
 @section('title', 'Create record')
 
@@ -8,10 +8,9 @@
 @endsection
 
 @section('content')
+@parent
 
-<a href="{{ route('products.index') }}">Back</a>
-
-<h3>Create record</h3>
+<h3>@lang('home.create')</h3>
 
 @include('layouts.errors')
 
@@ -60,7 +59,7 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button type="submit" class="btn btn-primary">@lang('home.create')</button>
 </form>
 
 @endsection
@@ -68,6 +67,6 @@
 @section('js')
 @parent
 <script type="text/javascript" src="/lib/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
-<script type="text/javascript" src="/lib/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.uk.min.js" charset="UTF-8"></script>
-<script type="text/javascript" src="{{ filetime('js/datepicker.js') }}"></script>
+<script type="text/javascript" src="/lib/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.{{ Lang::getLocale() }}.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="{{ filetime('/js/'.Lang::getLocale().'/datepicker.js') }}"></script>
 @endsection

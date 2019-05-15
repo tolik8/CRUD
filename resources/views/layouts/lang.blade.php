@@ -1,5 +1,9 @@
 <div class="lang text-right">
-    <a href="/setlocale/en">EN</a>
-    <a href="/setlocale/ru">RU</a>
-    <a href="/setlocale/uk">UA</a>
+@foreach (Config::get('app.locales') as $key => $locale)
+@if ($key === Lang::getLocale())
+    <span class="active">{{ $locale }}</span>
+@else
+    <span><a href="/setlocale/{{ $key }}">{{ $locale }}</a></span>
+@endif
+@endforeach
 </div>

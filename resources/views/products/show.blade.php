@@ -1,12 +1,11 @@
-@extends('layouts.app')
+@extends('products.template')
 
 @section('title', 'Create record')
 
 @section('content')
+@parent
 
-<a href="{{ route('products.index') }}">Back</a>
-
-<h3>Show record</h3>
+<h3>@lang('home.show')</h3>
 
 @include('layouts.errors')
 

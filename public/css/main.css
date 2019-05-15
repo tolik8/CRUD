@@ -1,4 +1,8 @@
 
-.lang a {
+.lang span {
   margin-left: 10px;
+}
+
+.lang span.active {
+  border-bottom: 2px solid black;
 }

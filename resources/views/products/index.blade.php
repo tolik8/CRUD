@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('products.template')
 
 @section('title', 'Products')
 
@@ -9,9 +9,9 @@
 
 @section('content')
 
-<a href="{{ route('home') }}">Home page</a>
+<a href="{{ route('home') }}">@lang('home.home_page')</a>
 
-<h3>Products</h3>
+<h3>@lang('home.products')</h3>
 
 <table class="table">
     <thead>

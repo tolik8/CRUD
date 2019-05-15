@@ -1,0 +1,1 @@
+<a href="{{ route('products.index') }}">@lang('home.back')</a>

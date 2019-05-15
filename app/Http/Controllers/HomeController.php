@@ -17,11 +17,9 @@ class HomeController extends Controller
     public function setLocale($lang)
     {
         if (in_array($lang, Config::get('app.locales'), true)) {
-            //Cookie::queue('lang', $lang, 525600); // 60*24*365 = 1 year
-            Cookie::queue('lang', $lang, 0); // 60*24*365 = 1 year
+            Cookie::queue(Cookie::forget('lang'));
+            Cookie::queue(Cookie::make('lang', $lang, 525600)); // 60*24*365 = 1 year
         }
-
-        dd(Cookie::get('lang'));
         return back();
     }
 }

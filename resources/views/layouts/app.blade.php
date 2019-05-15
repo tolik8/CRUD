@@ -6,6 +6,7 @@
 @section('css')
     <link rel="stylesheet" href="/lib/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/font-awesome/5.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ filetime('/css/main.css') }}">
 @show
 </head>
 <body>

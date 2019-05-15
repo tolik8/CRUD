@@ -2,9 +2,9 @@
 
 function filetime($file): string
 {
-    $filename = public_path() . DIRECTORY_SEPARATOR . $file;
+    $filename = public_path() . $file;
     if (file_exists($filename)) {
-        return DIRECTORY_SEPARATOR . $file . '?time=' . filemtime($filename);
+        return $file . '?time=' . filemtime($filename);
     }
     return 'Error! File not found: ' . $file;
 }

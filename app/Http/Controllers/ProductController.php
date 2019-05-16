@@ -24,11 +24,9 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $product = new Product;
-
         $validator = Validator::make($request->all(), $this->getValidateData());
         /** @noinspection PhpUndefinedMethodInspection */
-        $validator->setAttributeNames($product->getNiceNames('products'));
+        $validator->setAttributeNames($this->getNiceNames('products'));
 
         if ($validator->fails()) {
             return redirect()->route('products.create')->withErrors($validator);
@@ -59,7 +57,7 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(), $this->getValidateDataForUpdate($product->getKey()));
         /** @noinspection PhpUndefinedMethodInspection */
-        $validator->setAttributeNames($product->getNiceNames('products'));
+        $validator->setAttributeNames($this->getNiceNames('products'));
 
         if ($validator->fails()) {
             return redirect()->route('products.edit', ['product' => $product])->withErrors($validator);

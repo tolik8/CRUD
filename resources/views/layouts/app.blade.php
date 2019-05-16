@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ Lang::getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>

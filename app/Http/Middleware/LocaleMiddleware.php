@@ -16,7 +16,10 @@ class LocaleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        Lang::setLocale($request->cookie('lang'));
+        if ($request->hasCookie('lang')) {
+            Lang::setLocale($request->cookie('lang'));
+        }
+
         return $next($request);
     }
 }

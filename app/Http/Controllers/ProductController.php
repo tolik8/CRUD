@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
 
 use App\Product;
@@ -23,16 +24,9 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        /*$messages = [
-            'required' => '!The :attribute field is required.',
-            'unique' => '!The :attribute has already been taken.',
-            'date' => '!The :attribute is not a valid date.',
-            'max' => '!The :attribute may not be greater than :max characters.',
-            'regex' => '!The :attribute format is invalid.',
-        ];*/
         $product = new Product;
 
-        $validator = Validator::make($request->all(), $product->getValidateData('create'));
+        $validator = Validator::make($request->all(), $this->getValidateData());
         /** @noinspection PhpUndefinedMethodInspection */
         $validator->setAttributeNames($product->getNiceNames('products'));
 
@@ -63,7 +57,7 @@ class ProductController extends Controller
 
     public function update(Product $product, Request $request)
     {
-        $validator = Validator::make($request->all(), $product->getValidateData('update', $product->getKey()));
+        $validator = Validator::make($request->all(), $this->getValidateDataForUpdate($product->getKey()));
         /** @noinspection PhpUndefinedMethodInspection */
         $validator->setAttributeNames($product->getNiceNames('products'));
 
@@ -88,6 +82,38 @@ class ProductController extends Controller
 
         }
         return redirect()->route('products.index');
+    }
+
+    protected function getNiceNames($table): array
+    {
+        $comments = DB::table('information_schema.columns')
+            ->where('table_schema', DB::raw('DATABASE()'))
+            ->where('table_name', $table)
+            ->pluck('column_comment', 'column_name')
+            ->toArray();
+
+        foreach ($comments as $key => $comment) {
+            if ($comment === '') {$comments[$key] = $key;}
+        }
+
+        return $comments;
+    }
+
+    protected function getValidateData(): array
+    {
+        return [
+            'code'    => 'required|regex:/^[0-9]+$/|max:20|unique:products',
+            'name'    => 'required|max:50',
+            'd_begin' => 'required|date',
+            'd_end'   => 'required|date',
+        ];
+    }
+
+    protected function getValidateDataForUpdate($key): array
+    {
+        $data = $this->getValidateData();
+        $data['code'] .= ',code,' . $key;
+        return $data;
     }
 
 }

@@ -14,7 +14,7 @@
 
 @include('layouts.errors')
 
-<form method="POST" action="/products/{{ $product->id }}">
+<form method="POST" action="{{ route('products.update', $product->id) }}">
     @method('put')
     @csrf
 

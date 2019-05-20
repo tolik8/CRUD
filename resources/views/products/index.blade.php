@@ -27,15 +27,15 @@
     <tbody>
 @foreach ($products as $product)
         <tr>
-            <td><a href="/products/{{ $product->id }}/edit"><i class="far fa-edit text-success"></i></a></td>
+            <td><a href="{{ route('products.edit', $product->id) }}"><i class="far fa-edit text-success"></i></a></td>
             <td>
-                <form method="POST" action="/products/{{ $product->id }}">
+                <form method="POST" action="{{ route('products.destroy', $product->id) }}">
                     @method('delete') @csrf {{ $product->id }}
                     <button type="submit" class="icon-delete"><i class="far fa-minus-square text-danger"></i></button>
                 </form>
             </td>
             <td>{{ $product->code }}</td>
-            <td><a href="/products/{{ $product->id }}">{{ $product->name }}</a></td>
+            <td><a href="{{ route('products.show', $product->id) }}">{{ $product->name }}</a></td>
             <td>{{ $product->d_begin }}</td>
             <td>{{ $product->d_end }}</td>
         </tr>

@@ -14,12 +14,12 @@
 
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
-Route::get('/setlocale/{lang}', ['uses' => 'HomeController@setLocale']);
+Route::get('/setlocale/{lang}', 'HomeController@setLocale');
 
-Route::get('/products', ['uses' => 'ProductController@index', 'as' => 'products.index']);
-Route::get('/products/create', ['uses' => 'ProductController@create', 'as' => 'products.create']);
-Route::post('/products', ['uses' => 'ProductController@store', 'as' => 'products.store']);
-Route::get('/products/{product}', ['uses' => 'ProductController@show', 'as' => 'products.show']);
-Route::get('/products/{product}/edit', ['uses' => 'ProductController@edit', 'as' => 'products.edit']);
-Route::put('/products/{product}', ['uses' => 'ProductController@update', 'as' => 'products.update']);
-Route::delete('/products/{product}', ['uses' => 'ProductController@destroy', 'as' => 'products.destroy']);
+Route::get('/products', 'ProductController@index')->name('products.index');
+Route::get('/products/create', 'ProductController@create')->name('products.create');
+Route::post('/products', 'ProductController@store')->name('products.store');
+Route::get('/products/{product}', 'ProductController@show')->name('products.show');
+Route::get('/products/{product}/edit', 'ProductController@edit')->name('products.edit');
+Route::put('/products/{product}', 'ProductController@update')->name('products.update');
+Route::delete('/products/{product}', 'ProductController@destroy')->name('products.destroy');

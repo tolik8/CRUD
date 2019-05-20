@@ -18,8 +18,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $data['today'] = '';
-        return view('products.create', $data);
+        return view('products.create', ['today' => '']);
     }
 
     public function store(Request $request)
@@ -43,14 +42,12 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        $data['product'] = $product;
-        return view('products.show', $data);
+        return view('products.show', ['product' => $product]);
     }
 
     public function edit(Product $product)
     {
-        $data['product'] = $product;
-        return view('products.edit', $data);
+        return view('products.edit', ['product' => $product]);
     }
 
     public function update(Product $product, Request $request)

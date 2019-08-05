@@ -44,7 +44,7 @@
     <div class="form-group row">
         <label for="input_d_begin" class="col-sm-2 col-form-label">D_BEGIN</label>
         <div class="col-sm-10 input-group">
-            <input type="text" name="d_begin" class="form-control input-date" id="input_d_begin" placeholder="Date begin" autocomplete="off" value="{{ $d_begin }}">
+            <input type="text" name="d_begin" class="form-control input-date" id="input_d_begin" placeholder="Date begin" value="{{ $d_begin }}" autocomplete="off">
             <div class="input-group-append">
                 <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
             </div>

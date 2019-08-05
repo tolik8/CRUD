@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use Validator;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -21,17 +22,16 @@ class ProductController extends Controller
         return view('products.create', ['today' => '']);
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $validator = Validator::make($request->all(), $this->getValidateData());
-        /** @noinspection PhpUndefinedMethodInspection */
+        /*$validator = Validator::make($request->all(), $this->getValidateData());
         $validator->setAttributeNames($this->getNiceNames('products'));
 
         if ($validator->fails()) {
             return redirect()->route('products.create')->withErrors($validator);
-        }
+        }*/
 
-        $result = Product::create($request->all());
+        $result = Product::create($request->validated());
 
         if (is_object($result)) {
             return redirect()->route('products.index');

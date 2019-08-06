@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use Validator;
-use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductUpdateRequest;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,7 @@ class ProductController extends Controller
         return view('products.create', ['today' => '']);
     }
 
-    public function store(ProductRequest $request)
+    public function store(ProductStoreRequest $request)
     {
         /*$validator = Validator::make($request->all(), $this->getValidateData());
         $validator->setAttributeNames($this->getNiceNames('products'));
@@ -50,17 +51,16 @@ class ProductController extends Controller
         return view('products.edit', ['product' => $product]);
     }
 
-    public function update(Product $product, Request $request)
+    public function update(Product $product, ProductUpdateRequest $request)
     {
-        $validator = Validator::make($request->all(), $this->getValidateDataForUpdate($product->getKey()));
-        /** @noinspection PhpUndefinedMethodInspection */
+        /*$validator = Validator::make($request->all(), $this->getValidateDataForUpdate($product->getKey()));
         $validator->setAttributeNames($this->getNiceNames('products'));
 
         if ($validator->fails()) {
             return redirect()->route('products.edit', ['product' => $product])->withErrors($validator);
-        }
+        }*/
 
-        $result = $product->fill($request->all())->save();
+        $result = $product->fill($request->validated())->save();
 
         if ($result) {
             return redirect()->route('products.index');
@@ -94,7 +94,7 @@ class ProductController extends Controller
         return $comments;
     }
 
-    protected function getValidateData(): array
+    /*protected function getValidateData(): array
     {
         return [
             'code'    => 'required|regex:/^[0-9]+$/|max:20|unique:products',
@@ -109,6 +109,6 @@ class ProductController extends Controller
         $data = $this->getValidateData();
         $data['code'] .= ',code,' . $key;
         return $data;
-    }
+    }*/
 
 }

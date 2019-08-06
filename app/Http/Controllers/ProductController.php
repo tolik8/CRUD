@@ -15,7 +15,12 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create', ['today' => '']);
+        $product = new Product;
+        $data = [
+            'today' => '',
+            'col' => $product->getColumnsTranslate(),
+        ];
+        return view('products.create', $data);
     }
 
     public function store(ProductRequest $request)
@@ -36,7 +41,11 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('products.edit', ['product' => $product]);
+        $data = [
+            'col' => $product->getColumnsTranslate(),
+            'product' => $product
+        ];
+        return view('products.edit', $data);
     }
 
     public function update(Product $product, ProductRequest $request)

@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use DB;
 use Illuminate\Foundation\Http\FormRequest;
+use Lang;
 
 class ProductRequest extends FormRequest
 {
@@ -48,17 +49,8 @@ class ProductRequest extends FormRequest
 
     public function attributes()
     {
-        $comments = DB::table('information_schema.columns')
-            ->where('table_schema', DB::raw('DATABASE()'))
-            ->where('table_name', 'products')
-            ->pluck('column_comment', 'column_name')
-            ->toArray();
-
-        foreach ($comments as $key => $comment) {
-            if ($comment === '') {$comments[$key] = $key;}
-        }
-
-        return $comments;
+        $product = new \App\Product;
+        return $product->getColumnsTranslate();
     }
 
 }

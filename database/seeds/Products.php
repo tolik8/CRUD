@@ -9,7 +9,7 @@ class Products extends Seeder
      *
      * @return void
      */
-    public function run(): void
+    public function run()
     {
         DB::table('products')->insert([
             ['id' => 1,  'code' => 4521, 'name' => 'Coffee',    'd_begin' => '2019-05-01', 'd_end' => '2999-12-31'],

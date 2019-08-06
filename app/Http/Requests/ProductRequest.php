@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use DB;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductRequest extends FormRequest
@@ -37,4 +38,27 @@ class ProductRequest extends FormRequest
 
         return $rules;
     }
+
+    /*public function messages()
+    {
+        return [
+            'name.required' => 'A name is required',
+        ];
+    }*/
+
+    public function attributes()
+    {
+        $comments = DB::table('information_schema.columns')
+            ->where('table_schema', DB::raw('DATABASE()'))
+            ->where('table_name', 'products')
+            ->pluck('column_comment', 'column_name')
+            ->toArray();
+
+        foreach ($comments as $key => $comment) {
+            if ($comment === '') {$comments[$key] = $key;}
+        }
+
+        return $comments;
+    }
+
 }

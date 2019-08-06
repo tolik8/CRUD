@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Product;
 use Validator;
-use App\Http\Requests\ProductStoreRequest;
-use App\Http\Requests\ProductUpdateRequest;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -23,7 +22,7 @@ class ProductController extends Controller
         return view('products.create', ['today' => '']);
     }
 
-    public function store(ProductStoreRequest $request)
+    public function store(ProductRequest $request)
     {
         /*$validator = Validator::make($request->all(), $this->getValidateData());
         $validator->setAttributeNames($this->getNiceNames('products'));
@@ -51,7 +50,7 @@ class ProductController extends Controller
         return view('products.edit', ['product' => $product]);
     }
 
-    public function update(Product $product, ProductUpdateRequest $request)
+    public function update(Product $product, ProductRequest $request)
     {
         /*$validator = Validator::make($request->all(), $this->getValidateDataForUpdate($product->getKey()));
         $validator->setAttributeNames($this->getNiceNames('products'));

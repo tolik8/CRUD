@@ -15,8 +15,7 @@
 @include('layouts.errors')
 
 <form method="POST" action="{{ route('products.update', $product->id) }}">
-    @method('put')
-    @csrf
+    @csrf @method('put')
 
     <div class="form-group row">
         <label for="inputCode" class="col-sm-2 col-form-label">CODE</label>

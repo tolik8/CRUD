@@ -30,7 +30,7 @@
             <td><a href="{{ route('products.edit', $product->id) }}"><i class="far fa-edit text-success"></i></a></td>
             <td>
                 <form method="POST" action="{{ route('products.destroy', $product->id) }}">
-                    @method('delete') @csrf {{ $product->id }}
+                    @csrf @method('delete') {{ $product->id }}
                     <button type="submit" class="icon-delete"><i class="far fa-minus-square text-danger"></i></button>
                 </form>
             </td>

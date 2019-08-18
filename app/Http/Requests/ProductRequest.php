@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests;
 
-use DB;
 use Illuminate\Foundation\Http\FormRequest;
-use Lang;
 
 class ProductRequest extends FormRequest
 {

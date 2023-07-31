@@ -10,9 +10,15 @@
     <form action="{{ route('pets.update', $data->id) }}" method="post" class="form-control">
         @csrf @method('patch')
 
-        <p><input type="text" name="name" value="{{ $data->name }}" placeholder="{{ __('pets.pet_name') }}" size="40"></p>
-        <p><input type="text" name="age" value="{{ $data->age }}" placeholder="{{ __('pets.age') }}" size="5"></p>
+        <p>
+            <label for="name" class="form-label">{{ __('pets.pet_name') }}</label>
+            <input type="text" name="name" id="name" value="{{ $data->name }}" placeholder="{{ __('pets.pet_name') }}" size="40" class="form-control">
+        </p>
+        <p>
+            <label for="age" class="form-label">{{ __('pets.age') }}</label>
+            <input type="text" name="age" id="age" value="{{ $data->age }}" placeholder="{{ __('pets.age') }}" size="5" class="form-control">
+        </p>
 
-        <button type="submit" class="btn btn-primary">{{ __('home.edit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('home.update') }}</button>
     </form>
 @endsection

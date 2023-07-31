@@ -14,6 +14,7 @@ return [
         'deleted' => 'Record deleted',
     ],
     'show' => 'Show',
+    'update' => 'Update',
     'updated_at' => 'Updated at',
 
 ];

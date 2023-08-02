@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PetRequest;
+use App\Models\Category;
 use App\Models\Pet;
 
 class PetController extends Controller
@@ -20,7 +21,7 @@ class PetController extends Controller
      */
     public function create()
     {
-        return view('pets.create');
+        return view('pets.create', ['categories' => Category::all()]);
     }
 
     /**
@@ -50,7 +51,7 @@ class PetController extends Controller
      */
     public function edit(Pet $pet)
     {
-        return view('pets.edit', ['data' => $pet]);
+        return view('pets.edit', ['data' => $pet, 'categories' => Category::all()]);
     }
 
     /**

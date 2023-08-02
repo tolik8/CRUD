@@ -3,9 +3,11 @@
 return [
 
     'back' => 'Back',
+    'category' => 'Category',
     'create' => 'Create',
     'created_at' => 'Created at',
     'delete' => 'Delete',
+    'description' => 'Description',
     'edit' => 'Edit',
     'home_page' => 'Home page',
     'record' => [

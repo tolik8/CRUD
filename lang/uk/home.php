@@ -3,9 +3,11 @@
 return [
 
     'back' => 'Назад',
+    'category' => 'Категорія',
     'create' => 'Створити',
     'created_at' => 'Створено',
     'delete' => 'Видалити',
+    'description' => 'Опис',
     'edit' => 'Редагувати',
     'home_page' => 'Домашня сторінка',
     'record' => [

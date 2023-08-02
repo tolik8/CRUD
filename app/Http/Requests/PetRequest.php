@@ -24,6 +24,8 @@ class PetRequest extends FormRequest
         return [
             'name' => 'required|max:50',
             'age' => 'nullable|integer|min:0',
+            'description' => '',
+            'category_id' => '',
         ];
     }
 }

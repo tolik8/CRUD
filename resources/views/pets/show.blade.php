@@ -10,6 +10,7 @@
     <div class="alert alert-info">
         <h3>{{ $data->name }}</h3>
         <p>{{ __('pets.age') }} {{ $data->age }}</p>
+        <p>{{ __('home.description') }} {{ $data->description }}</p>
         <p><small>{{ __('home.created_at') }} {{ $data->created_at }}</small></p>
         @if($data->created_at != $data->updated_at)
             <p><small>{{ __('home.updated_at') }} {{ $data->updated_at }}</small></p>

@@ -10,18 +10,24 @@
     <form action="{{ route('pets.store') }}" method="post" class="form-control">
         @csrf
 
-        <p><input type="text" name="name" placeholder="{{ __('pets.pet_name') }}" size="40"></p>
-        <p><input type="text" name="age" placeholder="{{ __('pets.age') }}" size="5"></p>
+        <p>
+            <label class="form-label" for="name">{{ __('pets.pet_name') }}</label>
+            <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name" placeholder="{{ __('pets.pet_name') }}" size="40">
+        </p>
+        <p>
+            <label class="form-label" for="age">{{ __('pets.age') }}</label>
+            <input type="text" class="form-control" name="age" value="{{ old('age') }}" id="age" placeholder="{{ __('pets.age') }}" size="5">
+        </p>
         <div>
             <label class="form-label" for="select-id">{{ __('home.category') }}</label>
             <select name="category_id" class="form-select" id="select-id">
-                @foreach($categories as $cat)
-                    <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                @foreach($categories as $el)
+                    <option {{ $el->id === (int)(old('category_id')) ? ' selected' : '' }} value="{{ $el->id }}">{{ $el->name }}</option>
                 @endforeach
             </select>
         </div>
         <div class="form-floating mt-3">
-            <textarea name="description" class="form-control" id="floatingTextarea"></textarea>
+            <textarea name="description" class="form-control" id="floatingTextarea">{{ old('description') }}</textarea>
             <label for="floatingTextarea">{{ __('home.description') }}</label>
         </div>
 

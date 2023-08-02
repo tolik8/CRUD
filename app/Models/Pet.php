@@ -12,6 +12,7 @@ class Pet extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
+    protected $table = 'pets';
 
     public function category(): BelongsTo
     {

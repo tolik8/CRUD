@@ -4,7 +4,7 @@
 
 @section('content')
     <a href="{{ route('pets.create') }}"><button type="button" class="btn btn-primary mb-3">{{ __('home.create') }}</button></a>
-    @foreach($data as $el)
+    @foreach($pets as $el)
         <div class="alert alert-info">
             <h3>{{ $el->name }} ({{ $el->category->name }})</h3>
             <p>{{ __('pets.age') }} {{ $el->age }}</p>

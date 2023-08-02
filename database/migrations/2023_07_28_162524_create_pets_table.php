@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
 
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id', 'pets_category_id_fk')->on('categories')->references('id');
 
             $table->softDeletes();
         });

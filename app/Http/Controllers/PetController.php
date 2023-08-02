@@ -13,7 +13,8 @@ class PetController extends Controller
      */
     public function index()
     {
-        return view('pets.index', ['data' => Pet::all()]);
+        $pets = Pet::all();
+        return view('pets.index', compact('pets'));
     }
 
     /**
@@ -21,7 +22,8 @@ class PetController extends Controller
      */
     public function create()
     {
-        return view('pets.create', ['categories' => Category::all()]);
+        $categories = Category::all();
+        return view('pets.create', compact('categories'));
     }
 
     /**
@@ -29,12 +31,7 @@ class PetController extends Controller
      */
     public function store(PetRequest $request)
     {
-        $result = Pet::create($request->validated());
-
-        if (!is_object($result)) {
-            return redirect()->route('pets.create');
-        }
-
+        Pet::create($request->validated());
         return redirect()->route('pets.index')->with('success', __('home.record.created'));
     }
 
@@ -43,7 +40,7 @@ class PetController extends Controller
      */
     public function show(Pet $pet)
     {
-        return view('pets.show', ['data' => $pet]);
+        return view('pets.show', compact('pet'));
     }
 
     /**
@@ -51,7 +48,8 @@ class PetController extends Controller
      */
     public function edit(Pet $pet)
     {
-        return view('pets.edit', ['data' => $pet, 'categories' => Category::all()]);
+        $categories = Category::all();
+        return view('pets.edit', compact('pet', 'categories'));
     }
 
     /**
@@ -59,12 +57,7 @@ class PetController extends Controller
      */
     public function update(PetRequest $request, Pet $pet)
     {
-        $result = $pet->fill($request->validated())->save();
-
-        if (!$result) {
-            return redirect()->route('pets.edit', ['data' => $pet]);
-        }
-
+        $pet->fill($request->validated())->save();
         return redirect()->route('pets.index')->with('success', __('home.record.updated'));
     }
 

@@ -8,12 +8,12 @@
     <h3>{{ __('pets.pet') }}</h3>
 
     <div class="alert alert-info">
-        <h3>{{ $data->name }}</h3>
-        <p>{{ __('pets.age') }} {{ $data->age }}</p>
-        <p>{{ __('home.description') }} {{ $data->description }}</p>
-        <p><small>{{ __('home.created_at') }} {{ $data->created_at }}</small></p>
-        @if($data->created_at != $data->updated_at)
-            <p><small>{{ __('home.updated_at') }} {{ $data->updated_at }}</small></p>
+        <h3>{{ $pet->name }} ({{ $pet->category()->first()->name }})</h3>
+        <p>{{ __('pets.age') }} {{ $pet->age }}</p>
+        <p>{{ __('home.description') }} {{ $pet->description }}</p>
+        <p><small>{{ __('home.created_at') }} {{ $pet->created_at }}</small></p>
+        @if($pet->created_at != $pet->updated_at)
+            <p><small>{{ __('home.updated_at') }} {{ $pet->updated_at }}</small></p>
         @endif
     </div>
 @endsection

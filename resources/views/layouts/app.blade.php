@@ -9,12 +9,12 @@
     <link href="{{ asset('build/assets/app-71455456.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div class="container my-2">
-        @include('inc.languages')
-        @include('inc.messages')
+<div class="container my-2">
+    @include('inc.navbar')
+    @include('inc.messages')
 
-        @yield('content')
-    </div>
-    <script src="{{ asset('build/assets/app-c1097373.js') }}"></script>
+    @yield('content')
+</div>
+<script src="{{ asset('build/assets/app-c1097373.js') }}"></script>
 </body>
 </html>

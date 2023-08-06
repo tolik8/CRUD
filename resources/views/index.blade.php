@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('home.home_page'))
+@section('title', __('main.home_page'))
 
 @section('content')
-    <a href="{{ route('pets.index') }}"><button type="button" class="btn btn-primary">@lang('pets.pets')</button></a>
+    <h3>CRUD - {{ __('main.home_page') }}</h3>
 @endsection

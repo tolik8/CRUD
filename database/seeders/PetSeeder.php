@@ -17,6 +17,7 @@ class PetSeeder extends Seeder
             'name' => 'Рекс',
             'age' => 10,
             'category_id' => 2,
+            'description' => 'друг',
         ]);
         DB::table('pets')->insert([
             'name' => 'Тузік',

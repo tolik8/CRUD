@@ -3,6 +3,7 @@
 return [
 
     'back' => 'Back',
+    'categories' => 'Categories',
     'category' => 'Category',
     'create' => 'Create',
     'created_at' => 'Created at',
@@ -16,6 +17,8 @@ return [
         'deleted' => 'Record deleted',
     ],
     'show' => 'Show',
+    'tag' => 'Tag',
+    'tags' => 'Tags',
     'update' => 'Update',
     'updated_at' => 'Updated at',
 

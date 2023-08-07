@@ -3,7 +3,6 @@
 @section('title', __('categories.edit_category'))
 
 @section('content')
-    <h3>{{ __('main.categories') }}</h3>
 
     <a href="{{ route('categories.index') }}">
         <button type="button" class="btn btn-secondary mb-3">{{ __('main.back') }}</button>

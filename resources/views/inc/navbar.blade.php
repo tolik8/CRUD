@@ -10,10 +10,7 @@
                     <a class="nav-link" href="{{ route('categories.index') }}">{{ __('main.categories') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pets.index') }}">{{ __('pets.pets') }}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{{ __('main.tags') }}</a>
+                    <a class="nav-link" href="{{ route('posts.index') }}">{{ __('main.posts') }}</a>
                 </li>
             </ul>
             @foreach (Config::get('app.locales') as $key => $locale)

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Post;
 
-use App\Models\Pet;
+use App\Models\Post;
 use Illuminate\Contracts\View\View;
 
 class IndexController extends BaseController
 {
     public function __invoke(): View
     {
-        $pets = Pet::all();
-        return view('pets.index', compact('pets'));
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
     }
 }

@@ -18,13 +18,28 @@ class CategorySeeder extends Seeder
             'name' => '...',
         ]);
         DB::table('categories')->insert([
-            'name' => 'Собаки',
+            'name' => 'Головне',
         ]);
         DB::table('categories')->insert([
-            'name' => 'Кішки',
+            'name' => 'Політика',
         ]);
         DB::table('categories')->insert([
-            'name' => 'Попугаї',
+            'name' => 'Економіка',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Війна',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Події',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Суспільство',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Технології',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Наука',
         ]);
     }
 }

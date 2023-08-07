@@ -13,8 +13,8 @@ class Category extends Model
     protected $guarded = [];
     protected $table = 'categories';
 
-    public function pets(): HasMany
+    public function posts(): HasMany
     {
-        return $this->hasMany(Pet::class);
+        return $this->hasMany(Post::class);
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', __('pets.pets_list'))
+@section('title', __('main.categories'))
 
 @section('content')
     <h3>{{ __('main.categories') }}</h3>
@@ -13,7 +13,7 @@
         <div class="alert alert-info">
             <h3>{{ $el->name }}</h3>
             <p><small>{{ __('main.created_at') }} {{ $el->created_at }}</small></p>
-            @if ($el->created_at != $el->updated_at)
+            @if (isset($el->updated_at) && $el->created_at !== $el->updated_at)
                 <p><small>{{ __('main.updated_at') }} {{ $el->updated_at }}</small></p>
             @endif
             <a href="{{ route('categories.edit', $el->id) }}"><button class="btn btn-success mx-1">{{ __('main.edit') }}</button></a>

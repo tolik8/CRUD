@@ -15,19 +15,19 @@ class TagSeeder extends Seeder
     public function run(): void
     {
         DB::table('tags')->insert([
-            'name' => 'самець',
+            'name' => 'новини',
         ]);
         DB::table('tags')->insert([
-            'name' => 'самка',
+            'name' => 'спорт',
         ]);
         DB::table('tags')->insert([
-            'name' => 'всі_прививки',
+            'name' => 'політика',
         ]);
         DB::table('tags')->insert([
-            'name' => 'жодної_прививки',
+            'name' => 'економіка',
         ]);
         DB::table('tags')->insert([
-            'name' => 'прививки_частково',
+            'name' => 'війна',
         ]);
     }
 }

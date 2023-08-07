@@ -13,8 +13,8 @@ class Tag extends Model
     protected $guarded = [];
     protected $table = 'tags';
 
-    public function pets(): BelongsToMany
+    public function posts(): BelongsToMany
     {
-        return $this->belongsToMany(Pet::class);
+        return $this->belongsToMany(Post::class);
     }
 }

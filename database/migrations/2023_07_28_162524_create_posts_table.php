@@ -11,17 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pets', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
-            $table->smallInteger('age')->nullable();
+            $table->string('title');
             $table->unsignedBigInteger('category_id')->nullable();
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();
 
-            $table->foreign('category_id', 'pets_category_id_fk')->on('categories')->references('id');
+            $table->foreign('category_id', 'posts_category_id_fk')->on('categories')->references('id');
 
             $table->softDeletes();
         });
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pets');
+        Schema::dropIfExists('posts');
     }
 };

@@ -1,30 +1,26 @@
 @extends('layouts.app')
 
-@section('title', __('pets.add_a_pet'))
+@section('title', 'Create post')
 
 @section('content')
-    <h3>{{ __('pets.pets') }}</h3>
-
-    <a href="{{ route('pets.index') }}">
+    <a href="{{ route('posts.index') }}">
         <button type="button" class="btn btn-secondary mb-3">{{ __('main.back') }}</button>
     </a>
 
-    <h3>{{ __('pets.add_a_pet') }}</h3>
+    <h3>{{ __('main.create') }}</h3>
 
-    <form action="{{ route('pets.store') }}" method="post" class="form-control">
+    <form action="{{ route('posts.store') }}" method="post" class="form-control">
         @csrf
 
         <div>
-            <label class="form-label" for="name">{{ __('pets.pet_name') }}</label>
-            <input type="text" class="form-control" name="name" value="{{ old('name') }}" id="name"
-                   placeholder="{{ __('pets.pet_name') }}" size="40">
-            @error('name')<p class="text-danger">{{ $message }}</p>@enderror
+            <label class="form-label" for="title">{{ __('main.title') }}</label>
+            <input type="text" class="form-control" name="title" value="{{ old('title') }}" id="title"
+                   placeholder="{{ __('main.title') }}" size="40">
+            @error('title')<p class="text-danger">{{ $message }}</p>@enderror
         </div>
-        <div class="mt-3">
-            <label class="form-label" for="age">{{ __('pets.age') }}</label>
-            <input type="text" class="form-control" name="age" value="{{ old('age') }}" id="age"
-                   placeholder="{{ __('pets.age') }}" size="5">
-            @error('age')<p class="text-danger">{{ $message }}</p>@enderror
+        <div class="form-floating mt-3">
+            <textarea name="content" class="form-control" style="height: 200px" id="floatingTextarea">{{ old('content') }}</textarea>
+            <label for="floatingTextarea">{{ __('main.content') }}</label>
         </div>
         <div class="mt-3">
             <label class="form-label" for="select-cat">{{ __('main.category') }}</label>
@@ -43,10 +39,6 @@
                     {{ (collect(old('tags'))->contains($tag->id)) ? ' selected' : '' }}>{{ $tag->name }}</option>
                 @endforeach
             </select>
-        </div>
-        <div class="form-floating mt-3">
-            <textarea name="description" class="form-control" id="floatingTextarea">{{ old('description') }}</textarea>
-            <label for="floatingTextarea">{{ __('main.description') }}</label>
         </div>
 
         <button type="submit" class="btn btn-primary mt-3">{{ __('main.create') }}</button>

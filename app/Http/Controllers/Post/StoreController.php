@@ -10,6 +10,6 @@ class StoreController extends BaseController
     public function __invoke(StoreRequest $request): RedirectResponse
     {
         $this->service->store($request);
-        return redirect()->route('pets.index')->with('success', __('main.record.created'));
+        return redirect()->route('posts.index')->with('success', __('main.record.created'));
     }
 }

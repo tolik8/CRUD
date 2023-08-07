@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Pet extends Model
+class Post extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
-    protected $table = 'pets';
+    protected $table = 'posts';
 
     public function category(): BelongsTo
     {

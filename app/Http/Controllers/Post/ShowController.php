@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Post;
 
-use App\Models\Pet;
+use App\Models\Post;
 use Illuminate\Contracts\View\View;
 
 class ShowController extends BaseController
 {
-    public function __invoke(Pet $pet): View
+    public function __invoke(Post $post): View
     {
-        $tags = $pet->tags;
-        return view('pets.show', compact('pet', 'tags'));
+        $tags = $post->tags;
+        return view('posts.show', compact('post', 'tags'));
     }
 }

@@ -25,7 +25,7 @@
         <div class="mt-2">
             <small>{{ __('main.created_at') }} {{ $post->created_at }}</small>
         </div>
-        @if (isset($post->updated_at) && $post->created_at !== $post->updated_at)
+        @if (isset($post->updated_at) && $post->created_at != $post->updated_at)
         <div><small>{{ __('main.updated_at') }} {{ $post->updated_at }}</small></div>
         @endif
     </div>

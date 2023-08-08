@@ -4,6 +4,9 @@ namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @property array $tags
+ */
 class UpdateRequest extends FormRequest
 {
     /**

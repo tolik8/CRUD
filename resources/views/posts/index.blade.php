@@ -18,7 +18,7 @@
                 @endforeach
             </p>
             <p><small>{{ __('main.created_at') }} {{ $el->created_at }}</small></p>
-            @if (isset($el->updated_at) && $el->created_at !== $el->updated_at)
+            @if (isset($el->updated_at) && $el->created_at != $el->updated_at)
                 <p><small>{{ __('main.updated_at') }} {{ $el->updated_at }}</small></p>
             @endif
             <a href="{{ route('posts.show', $el->id) }}"><button class="btn btn-info mx-1">{{ __('main.show') }}</button></a>

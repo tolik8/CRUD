@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('title');
+            $table->unsignedBigInteger('likes')->default(0);
             $table->unsignedBigInteger('category_id')->nullable();
 
             $table->timestamp('created_at')->useCurrent();

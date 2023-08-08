@@ -17,7 +17,7 @@
                 @if ($key === Lang::getLocale())
                     <span class="border-bottom border-4 border-primary mx-2">{{ $locale }}</span>
                 @else
-                    <span class="mx-2"><a href="{{ route('set_locale', $key) }}"
+                    <span class="mx-2"><a href="{{ route('locale', $key) }}"
                                           class="text-decoration-none">{{ $locale }}</a></span>
                 @endif
             @endforeach

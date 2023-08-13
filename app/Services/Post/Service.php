@@ -5,6 +5,7 @@ namespace App\Services\Post;
 use App\Http\Requests\Post\StoreRequest;
 use App\Http\Requests\Post\UpdateRequest;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class Service
 {
@@ -18,5 +19,19 @@ class Service
     {
         $post->fill($request->validated())->save();
         $post->tags()->sync($request->tags);
+    }
+
+    public function destroy (Post $post): bool|string
+    {
+        try {
+            DB::beginTransaction();
+            $post->delete();
+            $post->tags()->sync([]);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return $exception->getMessage();
+        }
+        return true;
     }
 }

@@ -9,11 +9,7 @@ class DestroyController extends BaseController
 {
     public function __invoke(Post $post): RedirectResponse
     {
-        try {
-            $post->delete();
-        } catch (\Exception $e) {
-            //
-        }
+        $this->service->destroy($post);
         return redirect()->route('posts.index')->with('success', __('main.record.deleted'));
     }
 }
